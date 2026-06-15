@@ -29,6 +29,9 @@ public interface ConversationDao {
     @Query("UPDATE conversations SET totalMistakes = totalMistakes + :count WHERE id = :id")
     void incrementMistakeCount(String id, int count);
 
+    @Query("UPDATE conversations SET isPinned = :pinned WHERE id = :id")
+    void updatePinnedStatus(String id, boolean pinned);
+
     @Delete
     void delete(ConversationEntity conversation);
 

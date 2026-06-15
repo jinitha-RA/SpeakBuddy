@@ -41,6 +41,9 @@ public class HomeActivity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
         setupRecyclerView();
+        setupSearch();
+        setupFilters();
+        setupSort();
         setupFab();
         observeData();
     }
@@ -55,10 +58,75 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public void onLongClick(ConversationEntity conversation) {
-                showDeleteDialog(conversation);
+                showOptionsDialog(conversation);
             }
         });
         binding.recyclerConversations.setAdapter(adapter);
+    }
+
+    private void setupSearch() {
+        binding.etSearch.addTextChangedListener(new android.text.TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String query = s.toString();
+                viewModel.setSearchQuery(query);
+                binding.btnClearSearch.setVisibility(query.isEmpty() ? View.GONE : View.VISIBLE);
+            }
+
+            @Override
+            public void afterTextChanged(android.text.Editable s) {}
+        });
+
+        binding.btnClearSearch.setOnClickListener(v -> {
+            binding.etSearch.setText("");
+        });
+    }
+
+    private void setupFilters() {
+        binding.chipGroupFilter.setOnCheckedChangeListener((group, checkedId) -> {
+            if (checkedId == R.id.chipDaily) {
+                viewModel.setCategoryFilter(Topic.DAILY.getKey());
+            } else if (checkedId == R.id.chipInterview) {
+                viewModel.setCategoryFilter(Topic.INTERVIEW.getKey());
+            } else if (checkedId == R.id.chipPresentation) {
+                viewModel.setCategoryFilter(Topic.PRESENTATION.getKey());
+            } else if (checkedId == R.id.chipIelts) {
+                viewModel.setCategoryFilter(Topic.IELTS.getKey());
+            } else {
+                viewModel.setCategoryFilter("all");
+            }
+        });
+    }
+
+    private void setupSort() {
+        binding.btnSort.setOnClickListener(v -> {
+            androidx.appcompat.widget.PopupMenu popup = new androidx.appcompat.widget.PopupMenu(this, binding.btnSort);
+            popup.getMenu().add(0, 1, 0, "Date");
+            popup.getMenu().add(0, 2, 1, "Topic");
+            popup.getMenu().add(0, 3, 2, "Most Mistakes");
+
+            popup.setOnMenuItemClickListener(item -> {
+                int itemId = item.getItemId();
+                if (itemId == 1) {
+                    viewModel.setSortOption(HomeViewModel.SortOption.DATE);
+                    binding.btnSort.setText("Sort: Date");
+                    return true;
+                } else if (itemId == 2) {
+                    viewModel.setSortOption(HomeViewModel.SortOption.TOPIC);
+                    binding.btnSort.setText("Sort: Topic");
+                    return true;
+                } else if (itemId == 3) {
+                    viewModel.setSortOption(HomeViewModel.SortOption.MISTAKES);
+                    binding.btnSort.setText("Sort: Mistakes");
+                    return true;
+                }
+                return false;
+            });
+            popup.show();
+        });
     }
 
     private void setupFab() {
@@ -66,7 +134,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void observeData() {
-        viewModel.getConversations().observe(this, conversations -> {
+        viewModel.getFilteredConversations().observe(this, conversations -> {
             if (conversations == null || conversations.isEmpty()) {
                 binding.layoutEmpty.setVisibility(View.VISIBLE);
                 binding.recyclerConversations.setVisibility(View.GONE);
@@ -114,6 +182,23 @@ public class HomeActivity extends AppCompatActivity {
         intent.putExtra(ChatActivity.EXTRA_TOPIC, topic);
         intent.putExtra(ChatActivity.EXTRA_TITLE, title);
         startActivity(intent);
+    }
+
+    private void showOptionsDialog(ConversationEntity conversation) {
+        String[] options = {
+                conversation.isPinned ? "Unpin from Top" : "Pin to Top",
+                "Delete Conversation"
+        };
+        new MaterialAlertDialogBuilder(this)
+                .setTitle("Options")
+                .setItems(options, (dialog, which) -> {
+                    if (which == 0) {
+                        viewModel.togglePinConversation(conversation);
+                    } else if (which == 1) {
+                        showDeleteDialog(conversation);
+                    }
+                })
+                .show();
     }
 
     private void showDeleteDialog(ConversationEntity conversation) {

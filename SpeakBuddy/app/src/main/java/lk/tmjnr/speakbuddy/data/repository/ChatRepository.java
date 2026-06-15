@@ -82,10 +82,15 @@ public class ChatRepository {
             entity.updatedAt = conversation.getUpdatedAt();
             entity.totalMessages = 0;
             entity.totalMistakes = 0;
+            entity.isPinned = false;
             conversationDao.insert(entity);
             if (onComplete != null)
                 onComplete.run();
         });
+    }
+
+    public void updatePinnedStatus(String id, boolean pinned) {
+        executor.execute(() -> conversationDao.updatePinnedStatus(id, pinned));
     }
 
     public void deleteConversation(String conversationId) {
@@ -122,7 +127,7 @@ public class ChatRepository {
                     System.currentTimeMillis(), transcript);
 
             // 2. Build history context (last 10 messages)
-            List<MessageEntity> recentMessages = messageDao.getRecentMessages(conversationId, 10);
+            List<MessageEntity> recentMessages = messageDao.getRecentMessages(conversationId, 50);
             List<ChatRequest.HistoryItem> history = new ArrayList<>();
             // Reverse to chronological order
             for (int i = recentMessages.size() - 1; i >= 0; i--) {

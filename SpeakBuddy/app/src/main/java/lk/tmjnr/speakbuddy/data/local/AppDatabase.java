@@ -11,7 +11,7 @@ import lk.tmjnr.speakbuddy.data.local.dao.MessageDao;
 import lk.tmjnr.speakbuddy.data.local.entity.ConversationEntity;
 import lk.tmjnr.speakbuddy.data.local.entity.MessageEntity;
 
-@Database(entities = {ConversationEntity.class, MessageEntity.class}, version = 1, exportSchema = false)
+@Database(entities = {ConversationEntity.class, MessageEntity.class}, version = 2, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract ConversationDao conversationDao();

@@ -63,6 +63,8 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
         private final TextView tvLastMessage;
         private final TextView tvTimestamp;
         private final TextView tvMistakeCount;
+        private final ImageView ivPinned;
+        private final ImageView ivTopicIcon;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -70,6 +72,8 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
             tvLastMessage = itemView.findViewById(R.id.tvLastMessage);
             tvTimestamp = itemView.findViewById(R.id.tvTimestamp);
             tvMistakeCount = itemView.findViewById(R.id.tvMistakeCount);
+            ivPinned = itemView.findViewById(R.id.ivPinned);
+            ivTopicIcon = itemView.findViewById(R.id.ivTopicIcon);
         }
 
         void bind(ConversationEntity conv) {
@@ -90,6 +94,32 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
                 tvMistakeCount.setVisibility(View.VISIBLE);
             } else {
                 tvMistakeCount.setVisibility(View.GONE);
+            }
+
+            if (ivPinned != null) {
+                ivPinned.setVisibility(conv.isPinned ? View.VISIBLE : View.GONE);
+            }
+
+            if (ivTopicIcon != null && conv.topic != null) {
+                int colorResId;
+                switch (conv.topic) {
+                    case "interview":
+                        colorResId = R.color.topic_interview;
+                        break;
+                    case "presentation":
+                        colorResId = R.color.topic_presentation;
+                        break;
+                    case "ielts":
+                        colorResId = R.color.topic_ielts;
+                        break;
+                    case "daily":
+                    default:
+                        colorResId = R.color.topic_daily;
+                        break;
+                }
+                ivTopicIcon.setBackgroundTintList(
+                        androidx.core.content.ContextCompat.getColorStateList(itemView.getContext(), colorResId)
+                );
             }
 
             itemView.setOnClickListener(v -> {

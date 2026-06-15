@@ -18,4 +18,5 @@ public class ConversationEntity {
     public long updatedAt;
     public int totalMessages;
     public int totalMistakes;
+    public boolean isPinned;
 }
