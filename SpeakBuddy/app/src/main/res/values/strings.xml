@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Speak Buddy</string>
+
+    <!-- Home screen -->
+    <string name="new_chat">New Chat</string>
+    <string name="no_conversations">No conversations yet.\nTap + to start practicing!</string>
+    <string name="delete_conversation">Delete conversation</string>
+    <string name="mistakes_count">%d mistakes</string>
+
+    <!-- Chat screen -->
+    <string name="tap_mic_hint">Tap mic and start speaking…</string>
+    <string name="listening">Listening…</string>
+    <string name="processing">Thinking…</string>
+    <string name="speaking">Speaking…</string>
+    <string name="grammar_corrections_title">📝 Grammar Corrections</string>
+    <string name="replay_audio">Replay audio</string>
+    <string name="ai_typing">SpeakBuddy is typing…</string>
+
+    <!-- Topic selector -->
+    <string name="choose_topic">Choose a Topic</string>
+    <string name="topic_daily">💬 Daily Conversation</string>
+    <string name="topic_interview">💼 Job Interview</string>
+    <string name="topic_presentation">📊 Presentation Practice</string>
+    <string name="topic_ielts">📝 IELTS Speaking</string>
+
+    <!-- Errors -->
+    <string name="error_network">No internet connection. Please check your network.</string>
+    <string name="error_speech">Speech recognition error. Please try again.</string>
+    <string name="error_mic_permission">Microphone permission is required to practice speaking.</string>
+    <string name="error_api">Something went wrong. Please try again.</string>
+    <string name="error_tts">Voice playback is unavailable.</string>
+    <string name="retry">Retry</string>
+
+    <!-- Content descriptions -->
+    <string name="cd_mic_button">Microphone button</string>
+    <string name="cd_back">Go back</string>
+    <string name="cd_replay">Replay AI response</string>
+
+    <!-- AI opening messages per topic -->
+    <string name="opening_daily">Hi there! 👋 I\'m your speaking buddy. Let\'s have a casual chat! How\'s your day going?</string>
+    <string name="opening_interview">Welcome to your mock interview session. I\'ll act as the interviewer. Let\'s begin — can you tell me a little about yourself?</string>
+    <string name="opening_presentation">Let\'s practice your presentation skills! Imagine I\'m your audience. What topic would you like to present today?</string>
+    <string name="opening_ielts">Welcome to your IELTS Speaking practice. I\'ll simulate the examiner role. Let\'s start with Part 1 — Can you tell me about your hometown?</string>
+</resources>

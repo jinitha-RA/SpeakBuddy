@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary brand colors -->
+    <color name="primary">#FF1565C0</color>
+    <color name="primary_dark">#FF0D47A1</color>
+    <color name="primary_light">#FF42A5F5</color>
+    <color name="on_primary">#FFFFFFFF</color>
+
+    <!-- Secondary -->
+    <color name="secondary">#FF00BFA5</color>
+    <color name="secondary_dark">#FF00897B</color>
+    <color name="on_secondary">#FFFFFFFF</color>
+
+    <!-- Background / Surface -->
+    <color name="background">#FFF5F5F5</color>
+    <color name="surface">#FFFFFFFF</color>
+    <color name="on_background">#FF212121</color>
+    <color name="on_surface">#FF212121</color>
+
+    <!-- Chat bubble colors -->
+    <color name="bubble_user">#FF1565C0</color>
+    <color name="bubble_ai">#FFFFFFFF</color>
+    <color name="bubble_correction">#FFFFF3E0</color>
+    <color name="correction_border">#FFFFB74D</color>
+
+    <!-- Grammar colors -->
+    <color name="grammar_wrong">#FFE53935</color>
+    <color name="grammar_correct">#FF43A047</color>
+    <color name="grammar_explanation">#FF757575</color>
+
+    <!-- Mic states -->
+    <color name="mic_idle">#FF9E9E9E</color>
+    <color name="mic_listening">#FFE53935</color>
+    <color name="mic_processing">#FFFFB300</color>
+    <color name="mic_speaking">#FF1565C0</color>
+
+    <!-- Misc -->
+    <color name="text_primary">#FF212121</color>
+    <color name="text_secondary">#FF757575</color>
+    <color name="text_hint">#FFBDBDBD</color>
+    <color name="divider">#FFE0E0E0</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
+    <!-- Topic colors -->
+    <color name="topic_daily">#FF42A5F5</color>
+    <color name="topic_interview">#FF7E57C2</color>
+    <color name="topic_presentation">#FFFF7043</color>
+    <color name="topic_ielts">#FF66BB6A</color>
+</resources>

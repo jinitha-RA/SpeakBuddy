@@ -1,0 +1,80 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="512dp"
+    android:height="512dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+
+    <!-- Transparent background -->
+
+    <!-- Main blue chat bubble -->
+    <path
+        android:fillColor="#0A8FF0"
+        android:pathData="M122,105 C165,55 246,45 306,76 C368,108 397,181 374,246 C350,314 282,354 211,341 L139,372 L151,302 C101,259 82,151 122,105 Z"/>
+
+    <!-- Dark blue shadow bubble -->
+    <path
+        android:fillColor="#0067D9"
+        android:fillAlpha="0.75"
+        android:pathData="M151,302 C201,335 269,335 322,299 C365,270 386,219 371,171 C382,225 353,292 292,321 C247,343 191,338 151,302 Z"/>
+
+    <!-- Small green chat bubble -->
+    <path
+        android:fillColor="#10BFA3"
+        android:pathData="M365,184 C401,168 447,182 461,218 C475,253 452,292 413,298 L375,321 L382,290 C352,276 337,238 349,211 C352,201 358,191 365,184 Z"/>
+
+    <!-- Small bubble dots -->
+    <path android:fillColor="#FFFFFF" android:pathData="M391,237 m-9,0 a9,9 0,1 0,18 0 a9,9 0,1 0,-18 0"/>
+    <path android:fillColor="#FFFFFF" android:pathData="M421,237 m-9,0 a9,9 0,1 0,18 0 a9,9 0,1 0,-18 0"/>
+    <path android:fillColor="#FFFFFF" android:pathData="M451,237 m-9,0 a9,9 0,1 0,18 0 a9,9 0,1 0,-18 0"/>
+
+    <!-- Voice waves -->
+    <path
+        android:strokeColor="#10BFA3"
+        android:strokeWidth="12"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M403,117 C425,129 440,151 443,178"/>
+    <path
+        android:strokeColor="#10BFA3"
+        android:strokeWidth="12"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M386,139 C399,147 408,162 410,179"/>
+
+    <!-- White face -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M172,147 C195,116 235,103 271,115 C309,128 334,164 333,204 C332,246 301,281 260,288 L236,318 L232,287 C190,279 160,243 160,201 C160,181 164,162 172,147 Z"/>
+
+    <!-- Headset band -->
+    <path
+        android:strokeColor="#05336B"
+        android:strokeWidth="14"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M161,194 C164,122 216,87 269,99 C318,110 348,149 351,195"/>
+
+    <!-- Ear pads -->
+    <path android:fillColor="#05336B" android:pathData="M143,184 C143,171 153,161 166,161 L175,161 C184,161 191,168 191,177 L191,217 C191,226 184,233 175,233 L166,233 C153,233 143,223 143,210 Z"/>
+    <path android:fillColor="#05336B" android:pathData="M333,184 C333,171 343,161 356,161 L365,161 C378,161 388,171 388,184 L388,210 C388,223 378,233 365,233 L356,233 C347,233 340,226 340,217 L340,177 C340,168 347,161 356,161 Z"/>
+
+    <!-- Eyes -->
+    <path android:fillColor="#05336B" android:pathData="M218,184 m-12,0 a12,20 0,1 0,24 0 a12,20 0,1 0,-24 0"/>
+    <path android:fillColor="#05336B" android:pathData="M282,184 m-12,0 a12,20 0,1 0,24 0 a12,20 0,1 0,-24 0"/>
+
+    <!-- Smile -->
+    <path
+        android:fillColor="#05336B"
+        android:pathData="M231,224 C238,246 267,249 279,224 C280,220 277,216 273,216 L237,216 C232,216 229,220 231,224 Z"/>
+
+    <!-- Mic boom -->
+    <path
+        android:strokeColor="#05336B"
+        android:strokeWidth="10"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M354,219 C342,238 322,250 301,251"/>
+    <path android:fillColor="#05336B" android:pathData="M301,251 m-12,0 a12,12 0,1 0,24 0 a12,12 0,1 0,-24 0"/>
+
+    <!-- Speak text simplified as paths not included: use TextView below logo for accurate app text -->
+</vector>
